@@ -14,7 +14,8 @@ class ShiftRegister74HC595
 {
 public:
     ShiftRegister74HC595(const uint8_t serialDataPin, const uint8_t clockPin, const uint8_t latchPin);
-    
+
+    void begin();
     void setAll(const uint8_t * digitalValues);
 #ifdef __AVR__
     void setAll_P(const uint8_t * digitalValuesProgmem); // Experimental, PROGMEM data
