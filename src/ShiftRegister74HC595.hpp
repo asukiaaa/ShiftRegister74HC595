@@ -93,6 +93,9 @@ void ShiftRegister74HC595<Size>::updateRegisters()
 template<uint8_t Size>
 void ShiftRegister74HC595<Size>::setNoUpdate(const uint8_t pin, const uint8_t value)
 {
+    if (pin / 8 >= Size) {
+        return;
+    }
     (value) ? bitSet(_digitalValues[pin / 8], pin % 8) : bitClear(_digitalValues[pin / 8], pin % 8);
 }
 
